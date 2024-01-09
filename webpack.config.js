@@ -13,6 +13,14 @@ module.exports = (webpackConfigEnv, argv) => {
   });
 
   return merge(defaultConfig, {
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          use: ["style-loader", "css-loader"],
+        },
+      ],
+    },
     // modify the webpack config however you'd like to by adding to this object
     plugins: [
       new HtmlWebpackPlugin({
