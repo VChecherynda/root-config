@@ -13,6 +13,14 @@ module.exports = (webpackConfigEnv, argv) => {
   });
 
   const customConfig  = merge(defaultConfig, {
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          use: ["style-loader", "css-loader"],
+        },
+      ],
+    },
     // modify the webpack config however you'd like to by adding to this object
     plugins: [
       new HtmlWebpackPlugin({
@@ -24,5 +32,11 @@ module.exports = (webpackConfigEnv, argv) => {
         },
       }),
     ],
+    externals: [ '@home/api', '@home/components'],
+
   });
+
+  console.log('[customConfig]', customConfig);
+
+  return customConfig;
 };
