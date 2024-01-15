@@ -5,18 +5,24 @@
     See https://single-spa.js.org/docs/layout-definition/ for more information.
 
   -->
-
   <nav>
     <application name="@home/mfe-react-demo-navbar"></application>
   </nav>
 
-  <aside>
-    <application name="@home/mfe-react-demo-sidebar"></application>
-  </aside>
+  <route path="/catalog">
+    <aside>
+      <application name="@home/mfe-react-demo-sidebar"></application>
+    </aside>
 
-  <main>
-    <route default>
+    <main>
       <application name="@home/main"></application>
-    </route>
-  </main>
+    </main>
+  </route>
+
+  <route default>
+    <main>
+      <h1>Please logged in</h1>
+    </main>
+  </route>
+
 </single-spa-router>
