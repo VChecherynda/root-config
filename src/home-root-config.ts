@@ -22,7 +22,7 @@ window.addEventListener(
   'app-chage:user-login',
   () => {
     const userData = api.getLoginUser();
-    const isLoggedIn = Boolean(userData?.name && userData?.token);
+    const isLoggedIn = Boolean(userData?.firstName && userData?.token);
 
     if (isLoggedIn) {
       return navigateToUrl('/catalog');
@@ -34,7 +34,7 @@ window.addEventListener(
 
 window.addEventListener('single-spa:before-routing-event', () => {
   const userData = api.getLoginUser();
-  const isLoggedIn = Boolean(userData?.name && userData?.token);
+  const isLoggedIn = Boolean(userData?.firstName && userData?.token);
 
   if (!isLoggedIn) {
      navigateToUrl('/');
